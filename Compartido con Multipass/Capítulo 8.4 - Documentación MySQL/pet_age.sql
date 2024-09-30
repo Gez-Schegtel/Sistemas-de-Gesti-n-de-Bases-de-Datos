@@ -1,0 +1,4 @@
+SELECT name, birth, CURRENT_DATE(), TIMESTAMPDIFF(YEAR, birth, CURRENT_DATE) AS age
+FROM pet
+ORDER BY age
+

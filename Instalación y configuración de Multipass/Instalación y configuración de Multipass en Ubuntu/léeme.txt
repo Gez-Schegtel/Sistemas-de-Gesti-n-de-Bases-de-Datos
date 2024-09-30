@@ -1,0 +1,10 @@
+Los scripts provistos fueron probados en un equipo con S.O. Ubuntu 22.04, y deben ser ejecutados en el siguiente orden:
+
+- INSTALACIÓN DE MULTIPASS Y LIBVIRT (Y SU CONFIGURACIÓN COMO DRIVER PREDETERMINADO):
+./1_instalar-multipass.sh
+
+- CREACIÓN DE LA MÁQUINA VIRTUAL Y PREPARACIÓN PARA SU USO:
+./2_crear-mv.sh
+
+- CONFIGURACIÓN DE RESOLUCIÓN DE NOMBRES DE RED Y DE IDIOMA ESPAÑOL PREDETERMINADO EN LA MV (ÉSTE SCRIPT DEBE EJECUTARSE EN LA MÁQUINA VIRTUAL, NO EN EL HOST):
+./3_configurar-mv.sh
