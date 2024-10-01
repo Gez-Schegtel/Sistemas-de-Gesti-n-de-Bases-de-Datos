@@ -62,4 +62,4 @@ grant all on sakila.* to 'jPerez'@'%', 'aFernandez'@'%';
 grant all on sakila.* to 'jPerez'@'localhost', 'aFernandez'@'localhost';
 
 -- Punto h)
-REVOKE LOCK TABLES, SELECT, RELOAD ON *.* FROM ‘aFernandez’@’%’;
+REVOKE LOCK TABLES, SELECT, RELOAD ON *.* FROM 'aFernandez'@'%';
