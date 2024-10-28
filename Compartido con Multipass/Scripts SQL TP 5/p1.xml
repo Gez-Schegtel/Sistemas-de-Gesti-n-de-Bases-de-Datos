@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prestamos>
+	<prestamo id="1">
+		<bibliotecario>
+			<nombre>Juan</nombre>
+			<apellidos>Pérez García</apellidos>
+		</bibliotecario>
+		<fecha>
+			<prestamo>2024-10-26</prestamo>
+			<devolucion>2024-11-10</devolucion>
+		</fecha>
+		<lector>
+			<id>L12345</id>
+			<nombre>Paul</nombre>
+			<apellidos>Newman</apellidos>
+			<telefono>123456789</telefono>
+			<direccion>
+				<tipo>Avenida</tipo>
+				<nombre>Figueroa Alcorta</nombre>
+				<numero>7597</numero>
+				<piso>2</piso>
+				<letra>A</letra>
+				<codigoPostal>28013</codigoPostal>
+				<localidad>Buenos Aires</localidad>
+				<provincia>Buenos Aires</provincia>
+			</direccion>
+		</lector>
+		<ejemplares>
+			<ejemplar>
+				<numeroRegistro>1001</numeroRegistro>
+				<titulo>El Quijote</titulo>
+				<autores>Miguel de Cervantes</autores>
+			</ejemplar>
+			<ejemplar>
+				<numeroRegistro>1025</numeroRegistro>
+				<titulo>El amor en los tiempos del cólera</titulo>
+				<autores>Gabriel García Márquez</autores>
+			</ejemplar>
+			<ejemplar>
+				<numeroRegistro>2030</numeroRegistro>
+				<titulo>1984</titulo>
+				<autores>George Orwell</autores>
+			</ejemplar>
+		</ejemplares>
+		</prestamo>
+</prestamos>

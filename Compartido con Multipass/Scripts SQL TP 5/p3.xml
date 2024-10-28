@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Libro SYSTEM "p3.dtd">
+<Libro>
+	<Titulo>LibroGenérico</Titulo>
+	<Contenido>
+        <Capitulo materia="Java">
+            <Tema>Tema1</Tema>
+            <Seccion apartados="1: Apartado1" dificil="no">Sección1</Seccion>
+        </Capitulo>
+        <Separacion></Separacion>
+        <Capitulo>
+            <Tema>Tema2</Tema>
+            <Seccion apartados="2: Apartado2">Sección2</Seccion>
+        </Capitulo>
+        <Capitulo materia="XML">
+			<Tema>Tema3</Tema>
+			<Seccion apartados="3: Apartado3" dificil="si">Sección3</Seccion>
+		</Capitulo>
+		<Capitulo materia="XML">
+			<Tema>Tema4</Tema>
+			<Seccion apartados="4: Apartado4" dificil="si">Sección4</Seccion>
+		</Capitulo>
+        <Separacion></Separacion>
+        <Capitulo>
+            <Tema>Tema5</Tema>
+            <Seccion apartados="5: Apartado5">Sección5</Seccion>
+            <Seccion apartados="6: Apartado6" dificil="si">Sección6</Seccion>
+        </Capitulo>
+    </Contenido>
+	<Copyright>Todos los derechos reservados a la Academia de Costa del Pacífico 2024®</Copyright>
+</Libro>
+   

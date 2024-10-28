@@ -12,7 +12,7 @@ $cpu = 2
 $disco = "30G"
 
 # Cantidad de memoria RAM
-$memoria = "3G"
+$memoria = "4G"
 
 Clear-Host
 Get-Date
