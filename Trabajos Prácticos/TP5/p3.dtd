@@ -1,0 +1,10 @@
+<!ELEMENT Libro (Titulo, Contenido, Copyright)>
+<!ELEMENT Titulo (#PCDATA)>
+<!ELEMENT Contenido ((Capitulo+, Separacion?)+)>
+<!ELEMENT Capitulo (Tema, Seccion+)>
+<!ATTLIST Capitulo materia (XML|Java) "Java">
+<!ELEMENT Tema (#PCDATA)>
+<!ELEMENT Seccion (#PCDATA)>
+<!ATTLIST Seccion apartados CDATA #REQUIRED dificil (si|no) "no">
+<!ELEMENT Separacion EMPTY>
+<!ELEMENT Copyright (#PCDATA)>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE CatalogoPeliculas SYSTEM "CagatoloPelis.dtd">
+<CatalogoPeliculas>
+	<Pelicula>
+		<Titulo>The Matrix</Titulo>
+		<Duracion>136</Duracion>
+		<Genero>Sci-Fi and Fantasy</Genero>
+		<Actores>
+			<Actor>Keanu Reeves</Actor>
+			<Actor>Laurence Fishburne</Actor>
+			<Actor>Carrie Ann Moss</Actor>
+		</Actores>
+		<Fecha>1999</Fecha>
+		<Director>Wachowski Sisters</Director>
+		<Formato>DVD</Formato>
+	</Pelicula>
+	<Pelicula>
+		<Titulo>Titanic</Titulo>
+		<Duracion>194</Duracion>
+		<Genero>Drama</Genero>
+		<Actores>
+			<Actor>Leonardo DiCaprio</Actor>
+			<Actor>Kate Winslet</Actor>
+		</Actores>
+		<Fecha>1999</Fecha>
+		<Director>James Cameron</Director>
+		<Formato>DVD</Formato>
+	</Pelicula>
+	<Pelicula>
+		<Titulo>The Sixth Sense</Titulo>
+		<Duracion>106</Duracion>
+		<Genero>Thriller</Genero>
+		<Actores>
+			<Actor>Bruce Willis</Actor>
+			<Actor>Haley Joel Osment</Actor>
+		</Actores>
+		<Fecha>1999</Fecha>
+		<Director>M. Night Shyamalan</Director>
+		<Formato>VHS</Formato>
+	</Pelicula>
+</CatalogoPeliculas>
