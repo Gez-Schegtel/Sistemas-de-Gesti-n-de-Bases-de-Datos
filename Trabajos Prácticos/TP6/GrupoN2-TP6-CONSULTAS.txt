@@ -1,0 +1,227 @@
+1)Insertar los documentos de películas provistos en los archivos customers.json,films.json y stores.json.
+
+	mongoimport -d=Mongodb2024 -c=clientes customers.json
+	mongoimport -d=Mongodb2024 -c=tiendas stores.json
+	mongoimport -d=Mongodb2024 -c=peliculas films.json
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2)Listar los títulos (Title) de todas las películas.
+
+	db.peliculas.find({},{Title:1, _id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3)Listar los nombres y apellidos (First name, Last name) de los actores de la película "AGENT TRUMAN".
+
+	db.peliculas.find({ Title: "AGENT TRUMAN" },{ "Actors.First name": 1, "Actors.Last name": 1, _id: 0 })
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)Listar todos los campos de la película "AGENT TRUMAN", excepto los actores.
+
+	db.peliculas.find({Title:"AGENT TRUMAN"},{Actors:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5)Listar los títulos (Title) y las categorías (Category) de todas las películas, ordenados por categoría en forma descendente
+
+	db.peliculas.find({},{ Title: 1, Category: 1, _id: 0 }) .sort({ Category: -1 })
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6)Listar el título (Title) y los nombres y apellidos (First name, Last name) de los actores de todas las películas de terror (Category : “Horror”).
+
+	db.peliculas.find({Category:"Horror"},{Title:1,"Actors.First 	":1,"Actors.Last name":1,_id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7)Listar el título (Title) y los nombres y apellidos (First name, Last name) de los actores de las películas que tengan exactamente cuatro actores.
+
+	db.peliculas.find({"Actors":{$size:4}},{Title:1,"Actors.First name":1,"Actors.Last name":1,_id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8)Mostrar el título (Title) y los nombres y apellidos (First name, Last name) de los actores de una película que tenga exactamente cuatro actores.
+
+	db.peliculas.findOne({"Actors":{$size:4}},{Title:1,"Actors.First name":1,"Actirs.Last name":1,_id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9)Listar los títulos (Title) y la descripción (Description) de las películas que en su descripción tengan la palabra “Panorama”.	
+
+	db.peliculas.find({$where:"this.Description&&this.Description.includes('Panorama')"},{Title:1,Description:1,_id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10)Encontrar las películas que tengan una duración (Length) entre 50 y 100 minutos.
+
+	db.peliculas.find({Length:{$gte:50,$lte:100}},{Title:1,Length:1,_id:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11)Mostrar título (Title), descripción (Description), duración (Length) y características especiales (Special Features) de las películas que tengan “detrás de escena” (“Behind the Scenes”) entre sus características especiales.
+
+	db.peliculas.find({ "Special Features": "Behind the Scenes" }, { Title: 1, Description: 1, Length: 1, "Special Features": 1, _id: 0 })
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+12)Mostrar título (Title), descripción (Description), duración (Length) y características especiales (Special Features) de las películas que tengan un costo de reposición (Replacement Cost) mayor a 20.
+
+	db.peliculas.find({"Replacement Cost": {$gt:20}},{Title:1,Description:1,"Special Features":1,_id:0,"Replacement Cost":1})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+13)Mostrar los datos de las películas (menos sus actores) que no son comedias (Category : “Comedy”)
+
+	db.peliculas.find({Category:{$ne:"Comedy"}},{Actors:0})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+14)Mostrar la cantidad de películas de terror (Category : “Horror”).
+
+	db.peliculas.countDocuments({Category:"Horror"})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15)Listar las películas en las que participen actores de apellido (Last name) “KILMER”.
+
+	db.peliculas.find({ "Actors.Last name": "KILMER" },{ Title: 1, _id: 0 })
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+16)Mostrar la cantidad de películas en las que actuó “OPRAH KILMER”.
+
+	db.peliculas.countDocuments({ "Actors.First name": "OPRAH", "Actors.Last name": "KILMER" });
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17)Mostrar las películas en las que actúan juntos “OPRAH KILMER” y “MENA HOPPER”.
+
+	db.peliculas.find({Actors: {$all: [{ $elemMatch: { "First name": "OPRAH", "Last name":	"KILMER" } },{ $elemMatch: { "First name": "MENA", "Last name": "HOPPER" } }]}},{ Title: 1, _id: 0 });
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18)Cargue los datos de cada unx de lxs integrantes del grupo como clientes.
+
+db.clientes.insertMany([
+{_id: ObjectId(), 
+Address: "CALLE 222",
+City: "Resistencia",
+Country: "Argentina",
+District: "Centro",
+"First Name": "MAURICIO",
+"Last Name": "SCHEFER",
+Phone: "3624111111",
+Rentals: []},
+{_id: ObjectId(),
+Address: "CALLE 223",
+City: "Resistencia",
+Country: "Argentina",
+District: "Norte",
+"First Name": "AGUSTIN",
+"Last Name": "ARDUÑA",
+Phone: "3624111112",
+Rentals: []},
+{_id: ObjectId(),
+Address: "CALLE 224",
+City: "Resistencia",
+Country: "Argentina",
+District: "Sur",
+"First Name": "FACUNDO",
+"Last Name": "FERNANDEZ",
+Phone: "3624111113",
+Rentals: []},
+{_id: ObjectId(),
+Address: "CALLE 224",
+City: "Resistencia",
+Country: "Argentina",
+District: "Sur",
+"First Name": "JUAN IGNACIO",
+"Last Name": "VELAZCO",
+Phone: "3624111114",
+Rentals: []},
+{_id: ObjectId(),
+Address: "CALLE 225",
+City: "Resistencia",
+Country: "Argentina",
+District: "Norte",
+"First Name": "SANTIAGO",
+"Last Name": "BERON",
+Phone: "3624111115",
+Rentals: []},
+{ _id: ObjectId(),
+Address: "CALLE 226",
+City: "Resistencia",
+Country: "Argentina",
+District: "Este",
+"First Name": "VICTOR FABRICIO",
+"Last Name": "KINWEILER",
+Phone: "3624111116",
+Rentals: []}
+]);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+19) Agregue el alquiler de dos películas a cada unx de lxs clientes cargadxs en el punto anterior.
+
+const clientesNuevos = [
+	ObjectId('67243d2099a2eaae07c1c18c'),
+	ObjectId('67243d2099a2eaae07c1c18d'),
+	ObjectId('67243d2099a2eaae07c1c18e'),
+     	ObjectId('67243d2099a2eaae07c1c18f'),
+     	ObjectId('67243d2099a2eaae07c1c190'),
+     	ObjectId('67243d2099a2eaae07c1c191')
+];
+
+const peliculasRentadas = [
+{
+"Film Title": " ALTER VICTORY",
+"Rental Date": new Date(), 
+"filmId": 18
+},
+{
+"Film Title": " AMADEUS HOLY",
+"Rental Date": new Date(), 
+"filmId": 19
+}
+];
+
+db.clientes.updateMany(
+{ _id: { $in: clientesNuevos } },
+{ $push: { Rentals: { $each: peliculasRentadas } } }
+);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20)ncrementar el costo de reposición (Replacement Cost) en 5 unidades para todas las películas. Verificar que se realizaron los cambios.
+
+	db.peliculas.updateMany({}, { $inc: { "Replacement Cost": 5 } })
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+21) Actualizar los documentos de las películas cuyo costo de reposición (Replacement Cost) es mayor a 24, agregando un campo “Pelicula cara” con valor true.
+
+	db.peliculas.updateMany({"Replacement Cost":{$gt:24}},{$set:{"Película cara":true}})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+22)Agregar el actor “Bruce Lee” a la película "ALASKA PHANTOM".
+
+	const ultimoId= db.peliculas.aggregate([{$unwind: "$Actors"},{$group:{_id:null, ultimoId:{$max: "$Actors.actorId"}}}]).toArray()[0].ultimoId +1;
+
+	db.peliculas.updateOne({Title: "ALASKA PHANTOM" },{ $addToSet: { Actors: { "First name": "Bruce", "Last name": "Lee", actorId: ultimoId} } });
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+23) Borrar la película "ALAMO VIDEOTAPE".
+
+	db.peliculas.deleteOne({ Title: "ALAMO VIDEOTAPE" });
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+24)Obtener el promedio de duración de las películas por categoría.
+
+	db.peliculas.aggregate([{$group:{_id: "$Category", duracionProm: { $avg: "$Length" }}},{$project:{_id:0,Category: "$_id", duracionProm: 1}}])
